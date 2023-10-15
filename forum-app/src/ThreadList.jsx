@@ -1,8 +1,12 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 export const ThreadList = () => {
+  const navigate = useNavigate();
   const [theads, setTheads] = useState([]);
+
+  //レンタリング時にスレッドの情報を取得
   useEffect(() => {
     axios
       .get(
@@ -12,8 +16,9 @@ export const ThreadList = () => {
         setTheads(response.data);
       });
   }, []);
+
+  //取得したスレッドの情報からタイトルのリストを生成
   const ThreadGet = () => {
-    console.log(theads);
     if (theads !== undefined) {
       return (
         <ul>
@@ -24,9 +29,17 @@ export const ThreadList = () => {
       );
     }
   };
+
   return (
     <div>
       <ThreadGet />
+      <button
+        onClick={() => {
+          navigate("/thread/new");
+        }}
+      >
+        新規スレッド作成
+      </button>
     </div>
   );
 };

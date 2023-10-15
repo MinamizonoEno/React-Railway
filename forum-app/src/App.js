@@ -1,6 +1,7 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "./App.css";
 import { ThreadList } from "./ThreadList";
+import { ThreadPost } from "./ThreadPost";
 
 export const App = () => {
   return (
@@ -13,6 +14,7 @@ export const App = () => {
       <BrowserRouter>
         <Routes>
           <Route path={"/"} element={<ThreadList />} />
+          <Route path={"/thread/new"} element={<ThreadPost />} />
         </Routes>
       </BrowserRouter>
     </>
