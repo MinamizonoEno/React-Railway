@@ -13,11 +13,12 @@ export const ThreadList = () => {
       });
   }, []);
   const ThreadGet = () => {
+    console.log(theads);
     if (theads !== undefined) {
       return (
         <ul>
           {theads.map((data) => (
-            <il key={data.id}>{data.title}</il>
+            <li key={data.id}>{data.title}</li>
           ))}
         </ul>
       );
