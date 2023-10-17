@@ -2,7 +2,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-export const ThreadList = () => {
+export const ThreadList = (props) => {
   const navigate = useNavigate();
   const [theads, setTheads] = useState([]);
 
@@ -23,7 +23,16 @@ export const ThreadList = () => {
       return (
         <ul>
           {theads.map((data) => (
-            <li key={data.id}>{data.title}</li>
+            <li
+              key={data.id}
+              onClick={async () => {
+                //スレッドのIdを格納してリンクを開く
+                await props.setPostDataId(data.id);
+                await navigate("/thread/:" + props.postDataId);
+              }}
+            >
+              {data.title}
+            </li>
           ))}
         </ul>
       );

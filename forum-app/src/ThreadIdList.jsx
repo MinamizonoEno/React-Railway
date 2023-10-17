@@ -1,1 +1,1 @@
-export const ThreadList = () => {};
+export const ThreadIdList = () => {};
