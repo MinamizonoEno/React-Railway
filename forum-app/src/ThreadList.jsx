@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom";
 export const ThreadList = (props) => {
   const navigate = useNavigate();
   const [theads, setTheads] = useState([]);
+  const [update, setUpdata] = useState(false);
 
   //レンタリング時にスレッドの情報を取得
   useEffect(() => {
@@ -28,7 +29,7 @@ export const ThreadList = (props) => {
               onClick={async () => {
                 //スレッドのIdを格納してリンクを開く
                 await props.setPostDataId(data.id);
-                await navigate("/thread/:" + props.postDataId);
+                await navigate("/thread/:" + data.id);
               }}
             >
               {data.title}

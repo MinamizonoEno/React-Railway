@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
-export const ThreadPost = () => {
+export const NewThreadPost = () => {
   const navigate = useNavigate();
 
   //受け取った文をapiに投げる関数

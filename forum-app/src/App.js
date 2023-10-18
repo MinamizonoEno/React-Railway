@@ -1,9 +1,9 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "./App.css";
 import { ThreadList } from "./ThreadList";
-import { ThreadPost } from "./ThreadPost";
+import { NewThreadPost } from "./NewThreadPost";
 import { NotFound } from "./NotFound";
-import { ThreadIdList } from "./ThreadIdList";
+import { MessageList } from "./MessageList";
 import { useState } from "react";
 
 export const App = () => {
@@ -28,8 +28,11 @@ export const App = () => {
               />
             }
           />
-          <Route path={"/thread/new"} element={<ThreadPost />} />
-          <Route path={"/thread/:" + postDataId} element={<ThreadIdList />} />
+          <Route path={"/thread/new"} element={<NewThreadPost />} />
+          <Route
+            path={"/thread/:" + postDataId}
+            element={<MessageList postDataId={postDataId} />}
+          />
           <Route path={"*"} element={<NotFound />} />
         </Routes>
       </BrowserRouter>
