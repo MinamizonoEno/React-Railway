@@ -5,7 +5,6 @@ import { useNavigate } from "react-router-dom";
 export const ThreadList = (props) => {
   const navigate = useNavigate();
   const [theads, setTheads] = useState([]);
-  const [update, setUpdata] = useState(false);
 
   //レンタリング時にスレッドの情報を取得
   useEffect(() => {

@@ -5,7 +5,7 @@ export const NewThreadPost = () => {
   const navigate = useNavigate();
 
   //受け取った文をapiに投げる関数
-  const NewThreadPost = (title) => {
+  const NewThread = (title) => {
     axios
       .post(
         "https://2y6i6tqn41.execute-api.ap-northeast-1.amazonaws.com/threads",
@@ -23,7 +23,7 @@ export const NewThreadPost = () => {
   const handleSubmit = (event) => {
     event.preventDefault();
     const { value: threadTitle } = event.target.threadTitle;
-    NewThreadPost(threadTitle);
+    NewThread(threadTitle);
   };
 
   return (
