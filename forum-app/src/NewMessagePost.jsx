@@ -22,7 +22,7 @@ export const NewMessagePost = (props) => {
     event.preventDefault();
     const { value: threadTitle } = event.target.threadTitle;
     await NewMessage(threadTitle);
-    await props.PostGet();
+    await props.getPosts();
   };
 
   return (

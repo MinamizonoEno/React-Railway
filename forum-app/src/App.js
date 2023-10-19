@@ -30,6 +30,7 @@ export const App = () => {
           />
           <Route path={"/thread/new"} element={<NewThreadPost />} />
           {/* pathにstateの文をくっつけてページ遷移 */}
+          {/* useParam */}
           <Route
             path={"/thread/:" + postDataId}
             element={<MessageList postDataId={postDataId} />}

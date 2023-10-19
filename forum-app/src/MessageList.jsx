@@ -9,19 +9,11 @@ export const MessageList = (props) => {
 
   //初回レンタリング時に投稿の情報を取得
   useEffect(() => {
-    axios
-      .get(
-        "https://2y6i6tqn41.execute-api.ap-northeast-1.amazonaws.com/threads/" +
-          props.postDataId +
-          "/posts?offset=0"
-      )
-      .then((response) => {
-        setMessageList(response.data.posts);
-      });
+    getPosts();
   }, [props.postDataId]);
 
   //実行時に投稿の情報を取得
-  const PostGet = () => {
+  const getPosts = () => {
     axios
       .get(
         "https://2y6i6tqn41.execute-api.ap-northeast-1.amazonaws.com/threads/" +
@@ -55,7 +47,7 @@ export const MessageList = (props) => {
         postDataId={props.postDataId}
         messageList={messageList}
         setMessageList={setMessageList}
-        PostGet={PostGet}
+        getPosts={getPosts}
       />
       <button
         onClick={() => {
